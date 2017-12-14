@@ -8,5 +8,6 @@ int main(void)
   printf("hell world4\n");
   printf("hell world5\n");
   printf("hell world6\n");
+  printf("hell world7\n");
   return 0;
 }
