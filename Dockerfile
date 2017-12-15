@@ -1,4 +1,4 @@
-FROM ubuntu:16.10
+FROM alpine:latest
 
 RUN \
 apt-get update && \
