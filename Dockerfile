@@ -1,23 +1,8 @@
-FROM ubuntu:17.10
+FROM jenkinsci/jenkins:latest
 
-RUN \
-apt-get update && \
+USER root
 
-# nginx
-apt-get install -y nginx && \
+RUN apt update 
 
-# varnish
-apt-get install -y varnish && \
-
-
-# time settings
-apt-get install -y ntp &&\
-cp /etc/localtime /etc/localtime.utc &&\
-ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime &&\
-echo "server ntp.nict.jp" >> /etc/ntp.conf &&\
-echo "server ntp.nict.jp" >> /etc/ntp.conf &&\
-echo "server ntp.nict.jp" >> /etc/ntp.conf
-
-# Expose orts.
-EXPOSE 80
-EXPOSE 443
+RUN curl -fsSL get.docker.com | bash && \
+usermod -aG docker jenkins
